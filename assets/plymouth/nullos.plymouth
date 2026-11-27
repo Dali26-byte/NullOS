@@ -1,0 +1,7 @@
+[Plymouth Theme]
+Name=NullOS
+Description=NullOS neon boot
+ModuleName=script
+[script]
+ImageDir=/usr/share/plymouth/themes/nullos
+ScriptFile=/usr/share/plymouth/themes/nullos/nullos.script

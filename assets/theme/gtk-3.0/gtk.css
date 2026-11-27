@@ -1,0 +1,12 @@
+/* NullOS Neon: Arc-Dark base with neon purple accents */
+@import url("/usr/share/themes/Arc-Dark/gtk-3.0/gtk.css");
+@define-color null_bg #0d0716; @define-color null_bg2 #160c26; @define-color null_purple #b026ff; @define-color null_pink #ff3cdc; @define-color null_cyan #00f0ff;
+window, .background, dialog, popover > contents, menu, .menu { background-color: @null_bg; color: #eadcff; }
+headerbar, .titlebar, toolbar, .sidebar, placessidebar, notebook > header { background-color: @null_bg2; border-color: #2a1640; }
+*:selected, *:selected:focus, row:selected, treeview.view:selected, menuitem:hover, iconview:selected, calendar:selected { background-color: @null_purple; color: #ffffff; }
+button:checked, button.suggested-action, switch:checked, checkbutton check:checked, radiobutton radio:checked { background-color: @null_purple; border-color: @null_pink; color: #fff; }
+button:hover { border-color: @null_purple; box-shadow: 0 0 6px alpha(@null_purple, 0.7); }
+entry:focus, spinbutton:focus { border-color: @null_cyan; box-shadow: 0 0 5px alpha(@null_cyan, 0.6); }
+progressbar progress, scale highlight, levelbar block.filled { background-color: @null_purple; border-color: @null_pink; }
+link, *:link { color: @null_cyan; }
+.xfce4-panel, #XfcePanelWindow { background-color: alpha(@null_bg, 0.92); }

@@ -1,0 +1,9 @@
+[Configuration]
+ColorForeground=#eadcff
+ColorBackground=#0d0716
+ColorCursor=#ff3cdc
+ColorPalette=#1a1026;#ff3c7a;#3cffa8;#ffd23c;#b026ff;#ff3cdc;#00f0ff;#eadcff;#3a2a52;#ff6f9e;#7affc7;#ffe27a;#c766ff;#ff7ae8;#7af7ff;#ffffff
+BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
+BackgroundDarkness=0.88
+FontName=Monospace 11
+MiscShowWelcome=FALSE

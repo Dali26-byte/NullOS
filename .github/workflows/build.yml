@@ -1,0 +1,28 @@
+name: Build NullOS
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+      - name: Free disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache /usr/local/share/boost
+          df -h / /mnt
+      - name: Build NullOS ISO
+        run: sudo env WORK=/mnt/os-build MIRROR=http://azure.archive.ubuntu.com/ubuntu bash build-nullos.sh
+      - name: Collect ISO
+        run: |
+          mkdir -p out
+          sudo cp /mnt/os-build/*.iso out/
+          sudo chown -R "$USER" out
+          ls -lh out
+      - name: Upload ISO
+        uses: actions/upload-artifact@v4
+        with:
+          name: NullOS-ISO
+          path: out/*.iso
+          compression-level: 0
+          retention-days: 7
