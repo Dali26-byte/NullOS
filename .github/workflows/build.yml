@@ -1,6 +1,8 @@
 name: Build NullOS
 on:
   workflow_dispatch:
+permissions:
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-24.04
@@ -19,10 +21,9 @@ jobs:
           sudo cp /mnt/os-build/*.iso out/
           sudo chown -R "$USER" out
           ls -lh out
-      - name: Upload ISO
-        uses: actions/upload-artifact@v4
-        with:
-          name: NullOS-ISO
-          path: out/*.iso
-          compression-level: 0
-          retention-days: 7
+      - name: Publish ISO as a GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="nullos-1.0-build-${{ github.run_number }}"
+          gh release create "$TAG" out/*.iso --repo "${{ github.repository }}" --title "NullOS 1.0 (build ${{ github.run_number }})" --notes "NullOS live ISO. Boot menu: normal, Ghost Mode, safe graphics."
